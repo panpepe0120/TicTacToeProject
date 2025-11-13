@@ -14,23 +14,19 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Set up JDK 17
+    - name: Set up Java
       uses: actions/setup-java@v3
       with:
-        java-version: 17
-        distribution: temurin
+        java-version: '17'  # 適用你本地 Java 版本
 
-    - name: Create output directory
-      run: mkdir -p out
+    - name: List files for debug
+      run: ls -R
 
-    - name: Compile main Java files
-      run: |
-        javac -d out src/main/java/TicTacToe.java
+    - name: Compile main
+      run: javac -d out src/main/java/TicTacToe.java
 
-    - name: Compile test Java files
-      run: |
-        javac -d out -cp out:junit-4.13.2.jar:hamcrest-core-1.3.jar src/test/java/TicTacToeTest.java
+    - name: Compile test
+      run: javac -d out -cp out:junit-4.13.2.jar:hamcrest-core-1.3.jar TicTacToeTest.java
 
     - name: Run JUnit tests
-      run: |
-        java -cp out:junit-4.13.2.jar:hamcrest-core-1.3.jar org.junit.runner.JUnitCore TicTacToeTest
+      run: java -cp out:junit-4.13.2.jar:hamcrest-core-1.3.jar org.junit.runner.JUnitCore TicTacToeTest
