@@ -1,7 +1,7 @@
-package test;
+package test.java;
 import org.junit.*;
 
-import main.TicTacToe;
+import main.java.TicTacToe;
 
 import static org.junit.Assert.*;
 
