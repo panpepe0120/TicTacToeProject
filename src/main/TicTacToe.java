@@ -1,3 +1,4 @@
+package main;
 public class TicTacToe {
     private char[][] board = new char[3][3];
     private int moves = 0;
