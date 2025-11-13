@@ -1,4 +1,4 @@
-package test.java;
+package test.java.test;
 import org.junit.*;
 
 import main.java.TicTacToe;
